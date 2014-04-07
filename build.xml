@@ -1,0 +1,43 @@
+<project name="ClientSoapWSSEUsernameTokenHandler" default="jar">
+  <!-- 
+    "jar" - task to compile all the class files in /classes
+    into a distributable jar called "client_soap_wsse_username_token_handler.jar"
+  -->
+  <target name="jar" depends="compile">
+    <jar destfile="${basedir}/client_soap_wsse_username_token_handler.jar" basedir="${basedir}/classes" />
+  </target>
+
+  <!--
+    "Clean" - a task to remove all of the generated
+    files that are built during a build
+
+    Will not remove META-INF dirs in src and classes
+  -->
+  <target name="clean">
+    <delete includeemptydirs="true">
+      <fileset dir="classes">
+        <include name="**/*" />
+      </fileset>
+    </delete>
+  </target>
+
+  <!-- 
+    "Compile" - the central task that manages the depedencies 
+    for compilation and the compilation itself.  Jars should 
+    be compiled with Java 6 (1.6) compat as we do run java 6
+    on some of our production servers.
+
+    All file in "srcdir" with *.java will be compiled into
+    class files in "destdir"
+  -->
+  <target name="compile" depends="clean">
+    <javac 
+      bootclasspath=""
+      srcdir="${basedir}"
+      destdir="classes"
+      includeAntRuntime="false"
+      source="1.6"
+      target="1.6">
+    </javac>
+  </target>
+</project>
