@@ -1,10 +1,10 @@
-<project name="ClientSoapWSSEUsernameTokenHandler" default="jar">
+<project name="ClientSoapNullElementRemover" default="jar">
   <!-- 
     "jar" - task to compile all the class files in /classes
     into a distributable jar called "client_soap_wsse_username_token_handler.jar"
   -->
   <target name="jar" depends="compile">
-    <jar destfile="${basedir}/client_soap_wsse_username_token_handler.jar" basedir="${basedir}/classes" />
+    <jar destfile="${basedir}/client_soap_null_element_remover.jar" basedir="${basedir}/classes" />
   </target>
 
   <!--
